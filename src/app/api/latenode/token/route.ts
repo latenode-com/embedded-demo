@@ -17,7 +17,7 @@ export async function POST() {
   }
 
   try {
-    const token = await issueLatenodeToken(session.user.id);
+    const token = await issueLatenodeToken(session.user.email);
     return NextResponse.json({ token });
   } catch (error) {
     if (error instanceof EnvConfigError) {
