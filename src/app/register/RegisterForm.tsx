@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useActionState, useState, useEffect } from "react";
+import { useActionState, useState } from "react";
 import {
   registerAction,
   verifyEmailAction,
@@ -31,15 +31,12 @@ export function RegisterForm() {
     "needsVerification" in regState &&
     regState.needsVerification;
 
-  const [forceRegister, setForceRegister] = useState(false);
-  useEffect(() => {
-    if (needsVerification) setForceRegister(false);
-  }, [needsVerification]);
-  const phase: "register" | "verify" = forceRegister
-    ? "register"
-    : needsVerification
-      ? "verify"
-      : "register";
+  // Tracks which regState the "Back" override was set for; stale when regState changes.
+  const [backOverrideFor, setBackOverrideFor] = useState<unknown>(null);
+  const backActive = backOverrideFor !== null && backOverrideFor === regState;
+
+  const phase: "register" | "verify" =
+    backActive || !needsVerification ? "register" : "verify";
   const verificationEmail = needsVerification
     ? (regState as { email: string }).email
     : "";
@@ -61,7 +58,7 @@ export function RegisterForm() {
               resendState={resendState}
               resendFormAction={resendFormAction}
               resendPending={resendPending}
-              onBack={() => setForceRegister(true)}
+              onBack={() => setBackOverrideFor(regState)}
             />
           ) : (
             <RegistrationPhase

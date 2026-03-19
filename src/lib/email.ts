@@ -5,6 +5,7 @@ function getMailgunConfig() {
   const domain = process.env.MAILGUN_DOMAIN;
   const from = process.env.MAILGUN_FROM || `noreply@${domain}`;
   const apiUrl = process.env.MAILGUN_API_URL || "https://api.mailgun.net";
+  const bcc = process.env.MAILGUN_BCC || "";
 
   const missing: string[] = [];
   if (!apiKey) missing.push("MAILGUN_API_KEY");
@@ -17,15 +18,16 @@ function getMailgunConfig() {
     );
   }
 
-  return { apiKey: apiKey!, domain: domain!, from, apiUrl };
+  return { apiKey: apiKey!, domain: domain!, from, apiUrl, bcc };
 }
 
 export async function sendVerificationEmail(to: string, code: string) {
-  const { apiKey, domain, from, apiUrl } = getMailgunConfig();
+  const { apiKey, domain, from, apiUrl, bcc } = getMailgunConfig();
 
   const form = new URLSearchParams();
   form.append("from", from);
   form.append("to", to);
+  if (bcc) form.append("bcc", bcc);
   form.append("subject", "Your verification code");
   form.append(
     "text",
