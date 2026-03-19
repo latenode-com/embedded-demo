@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@layer base {
+  button,
+  a,
+  [role="button"],
+  [role="link"],
+  select,
+  label[for],
+  summary {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [role="button"][aria-disabled="true"] {
+    cursor: not-allowed;
+  }
+}
