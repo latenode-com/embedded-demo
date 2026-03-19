@@ -2,7 +2,7 @@
 
 > **Live demo** — try the embedded workflow builder at [embedded-demo.latenode.com](https://embedded-demo.latenode.com/).
 
-A ready-to-clone demo app that shows how to embed the [Latenode](https://latenode.com/embedded-ipaas) workflow automation editor into your own SaaS product using the white-label SDK. Built with Next.js, Tailwind CSS, and SQLite.
+A ready-to-clone demo app that shows how to embed the [Latenode](https://latenode.com/embedded-ipaas) workflow automation editor into your own SaaS product using the white-label SDK. Built with Next.js, Tailwind CSS, and Prisma (SQLite locally, PostgreSQL in production).
 
 > **One-click setup with AI** — paste this prompt into [Cursor](https://cursor.com), [Claude Code](https://docs.anthropic.com/en/docs/claude-code), or any AI coding agent to clone and run this demo locally.
 >
@@ -75,6 +75,7 @@ Copy `.env.example` to `.env.local` and fill in the values:
 
 | Variable                  | Required | Description                                              |
 | ------------------------- | -------- | -------------------------------------------------------- |
+| `DATABASE_URL`            | Yes      | Database connection string (`file:./dev.db` for local SQLite; set automatically on Railway) |
 | `SESSION_SECRET`          | Yes      | Random string (32+ chars) for encrypting session cookies |
 | `LATENODE_PRIVATE_KEY`    | Yes      | RSA private key (PEM format) for signing Latenode JWTs   |
 | `LATENODE_TENANT_ID`      | Yes      | Your numeric tenant ID from Latenode                     |
@@ -128,7 +129,8 @@ Key files:
 
 ```
 ├── prisma/
-│   └── schema.prisma        # User, Session + VerificationCode models (SQLite)
+│   ├── schema.prisma              # Prisma schema — SQLite (local dev)
+│   └── schema.production.prisma   # Prisma schema — PostgreSQL (Railway production)
 ├── src/
 │   ├── app/
 │   │   ├── page.tsx         # Marketing landing page
@@ -154,7 +156,7 @@ Key files:
 
 - **Branding**: Edit the presets in `src/lib/latenode-configs.ts` to change theme colors, fonts, and UI options.
 - **Auth**: The auth system uses simple email/password with bcrypt. Replace with your own auth provider as needed.
-- **Database**: SQLite is used for simplicity. For production, switch the Prisma datasource to PostgreSQL or MySQL.
+- **Database**: SQLite is used for local development (zero-config). Production on Railway uses PostgreSQL automatically via `prisma/schema.production.prisma`.
 
 ## Browser Limitations
 
@@ -166,12 +168,14 @@ See the [Latenode White-Label Docs](https://documentation.latenode.com/white-lab
 
 ## Scripts
 
-| Command          | Description                              |
-| ---------------- | ---------------------------------------- |
-| `npm run dev`    | Start development server                 |
-| `npm run build`  | Build for production                     |
-| `npm run setup`  | Run migrations (first-time setup)        |
-| `npm run db:reset`| Reset database completely               |
+| Command                    | Description                                              |
+| -------------------------- | -------------------------------------------------------- |
+| `npm run dev`              | Start development server                                 |
+| `npm run build`            | Build for production (local)                             |
+| `npm run setup`            | Create/sync the local SQLite database (first-time setup) |
+| `npm run db:push`          | Sync Prisma schema to local SQLite                       |
+| `npm run db:reset`         | Reset local database completely                          |
+| `npm run build:production` | Railway build — push schema to PostgreSQL and build app  |
 
 ## License
 

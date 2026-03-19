@@ -1,0 +1,9 @@
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "build": {
+    "buildCommand": "npm run build:production"
+  },
+  "deploy": {
+    "preDeployCommand": "npx prisma db push --schema prisma/schema.production.prisma --skip-generate"
+  }
+}

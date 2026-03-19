@@ -74,7 +74,7 @@ export function SetupError({ missing }: SetupErrorProps) {
 
           <div className="mt-5 flex gap-3 text-sm">
             <a
-              href="https://github.com/latenode-com/embedded-saas-demo#readme"
+              href="https://github.com/latenode-com/embedded-demo"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 rounded-lg border border-gray-300 px-3 py-2 font-medium text-gray-700 hover:bg-gray-50 transition-colors"

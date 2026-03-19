@@ -7,9 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "db:migrate": "npx prisma migrate dev",
-    "db:reset": "npx prisma migrate reset --force",
-    "setup": "npx prisma migrate dev --name init"
+    "db:push": "npx prisma db push",
+    "db:reset": "npx prisma db push --force-reset",
+    "setup": "npx prisma db push",
+    "build:production": "npx prisma generate --schema prisma/schema.production.prisma && next build"
   },
   "dependencies": {
     "@prisma/client": "^6.19.2",

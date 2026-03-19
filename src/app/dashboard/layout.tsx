@@ -18,7 +18,7 @@ export default async function DashboardLayout({
         <div className="flex items-center gap-4">
           <span className="text-sm text-gray-500">{session.user.email}</span>
           <a
-            href="https://github.com/latenode-com/whitelabel-example"
+            href="https://github.com/latenode-com/embedded-demo"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-700 transition-colors"
