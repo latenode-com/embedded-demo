@@ -75,7 +75,6 @@ Copy `.env.example` to `.env.local` and fill in the values:
 
 | Variable                  | Required | Description                                              |
 | ------------------------- | -------- | -------------------------------------------------------- |
-| `DATABASE_URL`            | Yes      | Database connection string (`file:./dev.db` for local SQLite; set automatically on Railway) |
 | `SESSION_SECRET`          | Yes      | Random string (32+ chars) for encrypting session cookies |
 | `LATENODE_PRIVATE_KEY`    | Yes      | RSA private key (PEM format) for signing Latenode JWTs   |
 | `LATENODE_TENANT_ID`      | Yes      | Your numeric tenant ID from Latenode                     |
