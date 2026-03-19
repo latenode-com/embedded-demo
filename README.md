@@ -4,9 +4,9 @@
 
 A ready-to-clone demo app that shows how to embed the [Latenode](https://latenode.com/embedded-ipaas) workflow automation editor into your own SaaS product using the white-label SDK. Built with Next.js, Tailwind CSS, and Prisma (SQLite locally, PostgreSQL in production).
 
-> **One-click setup with AI** — paste this prompt into [Cursor](https://cursor.com), [Claude Code](https://docs.anthropic.com/en/docs/claude-code), or any AI coding agent to clone and run this demo locally.
+> **One-click setup with AI** — paste this prompt into Cursor, Claude Code, or any AI coding agent to clone and run this demo locally.
 >
-> You will need a **Latenode white-label account** with an RSA signing key, tenant ID, and at least one plan created before starting.
+> You will need a **Latenode white-label account** with an RSA signing key, tenant ID, and at least one plan created before starting. [You can request it here](https://latenode.com/embedded-ipaas#contact)
 >
 > ```text
 > Clone the Latenode embedded demo and set it up so I can run it locally.
@@ -41,7 +41,7 @@ A ready-to-clone demo app that shows how to embed the [Latenode](https://latenod
 ## Prerequisites
 
 - **Node.js 18+** (20+ recommended)
-- A **Latenode white-label account** with:
+- A **Latenode white-label account** with ([You can request it here](https://latenode.com/embedded-ipaas#contact)):
   - RSA private signing key (from Latenode support)
   - Tenant ID
   - At least one plan created in the admin dashboard
