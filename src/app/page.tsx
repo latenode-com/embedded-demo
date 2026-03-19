@@ -58,7 +58,10 @@ export default function LandingPage() {
       {/* Navigation */}
       <header className="border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <span className="text-xl font-bold text-gray-900">Acme App</span>
+          <div className="flex flex-col leading-tight">
+            <span className="text-xl font-bold text-gray-900">Acme App</span>
+            <span className="text-xs text-gray-400 font-normal">your SaaS</span>
+          </div>
           <div className="flex items-center gap-4">
             <a
               href="https://github.com/latenode-com/embedded-demo"
@@ -87,6 +90,22 @@ export default function LandingPage() {
         </div>
       </header>
 
+      {/* Demo Notice Banner */}
+      <div className="bg-blue-50 border-b border-blue-100 px-6 py-3">
+        <p className="text-center text-sm text-blue-700">
+          This is a live demo showing how to embed the{" "}
+          <a
+            href="https://latenode.com/embedded-ipaas"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold underline underline-offset-2 hover:text-blue-900"
+          >
+            Latenode.com
+          </a>{" "}
+          workflow builder into your own SaaS application.
+        </p>
+      </div>
+
       {/* Hero */}
       <section className="py-24 px-6">
         <div className="max-w-4xl mx-auto text-center">
@@ -104,9 +123,9 @@ export default function LandingPage() {
             <span className="text-blue-600">Built Into Your App</span>
           </h1>
           <p className="mt-6 text-lg text-gray-500 max-w-2xl mx-auto">
-            Acme App embeds a powerful workflow automation editor directly into
-            your product. Your users build, deploy, and manage automations
-            without ever leaving your app.
+            This demo shows what it looks like when you embed Latenode&apos;s workflow
+            automation editor directly into your product — sign up to explore
+            the full embedded experience.
           </p>
           <div className="mt-10 flex items-center justify-center gap-4">
             <Link
@@ -202,7 +221,7 @@ export default function LandingPage() {
       <footer className="mt-auto border-t border-gray-100 py-8 px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <span className="text-sm text-gray-400">
-            Acme App — Latenode White-Label Demo
+            Acme App (your SaaS) — Latenode Embedded iPaaS Demo
           </span>
           <div className="flex items-center gap-6">
             <a

@@ -14,7 +14,10 @@ export default async function DashboardLayout({
   return (
     <div className="h-screen flex flex-col">
       <header className="h-14 border-b border-indigo-100 bg-indigo-50 flex items-center justify-between px-6 shrink-0">
-        <span className="text-lg font-bold text-indigo-700">Acme App</span>
+        <div className="flex flex-col leading-tight">
+          <span className="text-lg font-bold text-indigo-700">Acme App</span>
+          <span className="text-xs text-indigo-400 font-normal">your SaaS</span>
+        </div>
         <div className="flex items-center gap-4">
           <span className="text-sm text-gray-500">{session.user.email}</span>
           <a

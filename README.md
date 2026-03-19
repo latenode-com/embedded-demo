@@ -1,10 +1,10 @@
-# Acme App — Latenode White-Label Embedded Demo
+# Acme App (your SaaS) — Latenode Embedded iPaaS Demo
 
 ![Latenode Embedded Demo](./public/images/main-screen.png)
 
 > **Live demo** — try the embedded workflow builder at [embedded-demo.latenode.com](https://embedded-demo.latenode.com/).
 
-A ready-to-clone demo app that shows how to embed the [Latenode](https://latenode.com/embedded-ipaas) workflow automation editor into your own SaaS product using the white-label SDK. Built with Next.js, Tailwind CSS, and Prisma (SQLite locally, PostgreSQL in production).
+A ready-to-clone demo app that shows how to embed the [Latenode](https://latenode.com/embedded-ipaas) workflow automation editor into your own SaaS product using the Embedded iPaaS SDK. "Acme App" is a placeholder — it represents your SaaS. Built with Next.js, Tailwind CSS, and Prisma (SQLite locally, PostgreSQL in production).
 
 > **One-click setup with AI** — paste this prompt into Cursor, Claude Code, or any AI coding agent to clone and run this demo locally.
 >
