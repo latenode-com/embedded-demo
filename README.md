@@ -11,7 +11,7 @@ A ready-to-clone demo app that shows how to embed the [Latenode](https://latenod
 > ```text
 > Clone the Latenode embedded demo and set it up so I can run it locally.
 >
-> 1. git clone https://github.com/latenode-com/embedded-demo.git && cd embedded-demo
+> 1. git clone https://github.com/latenode-com/embedded-demo.git .
 > 2. npm install
 > 3. Copy .env.example to .env.local:
 >      cp .env.example .env.local
