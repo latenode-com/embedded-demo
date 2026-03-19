@@ -235,7 +235,7 @@ function VerificationPhase({
     <>
       <h1 className="text-lg font-semibold text-gray-900">Verify your email</h1>
       <p className="mt-2 text-sm text-gray-500">
-        We sent a 4-digit code to{" "}
+        We sent a 6-digit code to{" "}
         <span className="font-medium text-gray-700">{email}</span>
       </p>
 
@@ -262,12 +262,12 @@ function VerificationPhase({
             name="code"
             type="text"
             inputMode="numeric"
-            pattern="[0-9]{4}"
-            maxLength={4}
+            pattern="[0-9]{6}"
+            maxLength={6}
             required
             autoFocus
             className={`${inputClass} text-center text-lg tracking-[0.3em] font-mono`}
-            placeholder="0000"
+            placeholder="000000"
           />
         </div>
 

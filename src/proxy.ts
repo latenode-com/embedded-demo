@@ -10,7 +10,7 @@ function getSecretKey() {
   return new TextEncoder().encode(secret);
 }
 
-export async function middleware(req: NextRequest) {
+export async function proxy(req: NextRequest) {
   const path = req.nextUrl.pathname;
   const isProtected = PROTECTED_ROUTES.some((r) => path.startsWith(r));
   const isAuthRoute = AUTH_ROUTES.some((r) => path.startsWith(r));

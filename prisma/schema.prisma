@@ -31,6 +31,7 @@ model VerificationCode {
   id        String   @id @default(cuid())
   email     String
   code      String
+  attempts  Int      @default(0)
   expiresAt DateTime
   createdAt DateTime @default(now())
 }
