@@ -21,6 +21,9 @@ export const PRESETS: Record<string, ConfigPreset> = {
       allowCookies: true,
       ui: {
         main: { hideSideMenu: false },
+        scenarios: {
+          hideExploreAppsButton: true,
+        },
       },
     },
     codeString: `await sdk.configure({
@@ -28,7 +31,10 @@ export const PRESETS: Record<string, ConfigPreset> = {
   token,
   container: "latenode-embed",
   ui: {
-    main: { hideSideMenu: false }
+    main: { hideSideMenu: false },
+    scenarios: {
+      hideExploreAppsButton: true
+    }
   }
 });`,
   },
