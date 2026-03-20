@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { LatenodeEditor } from "@/components/LatenodeEditor";
+import { ConfigCodeBlock } from "@/components/ConfigCodeBlock";
 import { PRESETS } from "@/lib/latenode-configs";
 
 const CLONE_TEMPLATES = [
@@ -21,7 +22,13 @@ export default function CloneTemplatePage() {
 
   return (
     <div className="flex flex-col h-full">
-      <div className="px-6 py-4 border-b border-gray-200 bg-white flex gap-3 flex-wrap">
+      <div className="px-6 py-4 border-b border-gray-200 bg-white">
+        <h1 className="text-xl font-semibold text-gray-900">{PRESETS.cloneTemplate.title}</h1>
+        <p className="mt-1 text-sm text-gray-500">{PRESETS.cloneTemplate.description}</p>
+        <ConfigCodeBlock code={PRESETS.cloneTemplate.codeString} />
+      </div>
+
+      <div className="px-6 py-3 border-b border-gray-200 bg-gray-50 flex gap-3 flex-wrap">
         {CLONE_TEMPLATES.map((t) => (
           <button
             key={t.templateId}
@@ -37,7 +44,7 @@ export default function CloneTemplatePage() {
       </div>
 
       <div className={revealed ? "flex-1 min-h-0" : "hidden"}>
-        <LatenodeEditor preset={PRESETS.cloneTemplate} />
+        <LatenodeEditor preset={PRESETS.cloneTemplate} hideHeader />
       </div>
     </div>
   );

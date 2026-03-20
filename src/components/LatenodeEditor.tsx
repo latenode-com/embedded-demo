@@ -28,9 +28,10 @@ interface Props {
   showAutomationControls?: boolean;
   sideMenu?: (sdk: LatenodeSDK | null) => React.ReactNode;
   initialRoute?: string;
+  hideHeader?: boolean;
 }
 
-export function LatenodeEditor({ preset, showAutomationControls, sideMenu, initialRoute }: Props) {
+export function LatenodeEditor({ preset, showAutomationControls, sideMenu, initialRoute, hideHeader }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const sdkRef = useRef<LatenodeSDK | null>(null);
   const abortedRef = useRef(false);
@@ -145,11 +146,13 @@ export function LatenodeEditor({ preset, showAutomationControls, sideMenu, initi
 
   return (
     <div className="flex flex-col h-full">
-      <div className="px-6 py-4 border-b border-gray-200 bg-white">
-        <h1 className="text-xl font-semibold text-gray-900">{preset.title}</h1>
-        <p className="mt-1 text-sm text-gray-500">{preset.description}</p>
-        <ConfigCodeBlock code={preset.codeString} />
-      </div>
+      {!hideHeader && (
+        <div className="px-6 py-4 border-b border-gray-200 bg-white">
+          <h1 className="text-xl font-semibold text-gray-900">{preset.title}</h1>
+          <p className="mt-1 text-sm text-gray-500">{preset.description}</p>
+          <ConfigCodeBlock code={preset.codeString} />
+        </div>
+      )}
 
       {showAutomationControls && status === "ready" && (
         <div className="px-6 py-3 border-b border-gray-200 bg-gray-50 flex gap-2 flex-wrap">
