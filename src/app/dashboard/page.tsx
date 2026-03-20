@@ -3,6 +3,12 @@ import { getSession } from "@/lib/auth";
 
 const DEMO_CARDS = [
   {
+    href: "/dashboard/templates",
+    title: "Templates",
+    description: "Browse shared scenario templates to get started quickly.",
+    color: "bg-indigo-50 text-indigo-700",
+  },
+  {
     href: "/dashboard/full-embed",
     title: "Full Embed",
     description: "Default embed with all features visible — zero customization.",
@@ -37,6 +43,12 @@ const DEMO_CARDS = [
     title: "SDK Automation",
     description: "Programmatic control: create, save, deploy from your app.",
     color: "bg-rose-50 text-rose-700",
+  },
+  {
+    href: "/dashboard/clone-template",
+    title: "Clone Template",
+    description: "Trigger a clone-template action from a host-app button.",
+    color: "bg-cyan-50 text-cyan-700",
   },
 ];
 

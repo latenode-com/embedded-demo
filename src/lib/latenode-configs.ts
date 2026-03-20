@@ -320,6 +320,38 @@ sdk.navigate({ to: "/scenarios" });
 await sdk.createEmptyScenario("New automation");`,
   },
 
+  templates: {
+    key: "templates",
+    title: "Templates",
+    description:
+      "Browse the shared scenario template library. Pick a ready-made automation and use it as a starting point in your workspace.",
+    config: {
+      allowCookies: true,
+    },
+    codeString: `await sdk.configure({
+  allowCookies: true,
+  token,
+  container: "latenode-embed"
+});
+
+// Navigate to the shared scenarios / templates page:
+sdk.navigate({ to: "/shared-scenarios" });`,
+  },
+
+  cloneTemplate: {
+    key: "cloneTemplate",
+    title: "Clone Template",
+    description:
+      "Demonstrates triggering a clone-template action via sdk.navigate() from a host-app button. The embed is hidden until the action is triggered.",
+    config: {
+      allowCookies: true,
+    },
+    codeString: `await sdk.configure({ allowCookies: true, token, container: "latenode-embed" });
+
+// Triggered by the button click:
+sdk.navigate({ to: "/run-action?action=clone-template&template-id=69bd0f987e78dbcedb7f095f" });`,
+  },
+
   automation: {
     key: "automation",
     title: "SDK Automation",

@@ -27,9 +27,10 @@ interface Props {
   preset: ConfigPreset;
   showAutomationControls?: boolean;
   sideMenu?: (sdk: LatenodeSDK | null) => React.ReactNode;
+  initialRoute?: string;
 }
 
-export function LatenodeEditor({ preset, showAutomationControls, sideMenu }: Props) {
+export function LatenodeEditor({ preset, showAutomationControls, sideMenu, initialRoute }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const sdkRef = useRef<LatenodeSDK | null>(null);
   const abortedRef = useRef(false);
@@ -89,6 +90,10 @@ export function LatenodeEditor({ preset, showAutomationControls, sideMenu }: Pro
         container: containerId,
       });
 
+      if (initialRoute) {
+        sdk.navigate({ to: initialRoute });
+      }
+
       if (abortedRef.current) {
         sdk.cleanup();
         return;
@@ -100,7 +105,7 @@ export function LatenodeEditor({ preset, showAutomationControls, sideMenu }: Pro
       setErrorMsg(err instanceof Error ? err.message : "Unknown error");
       setStatus("error");
     }
-  }, [preset]);
+  }, [preset, initialRoute]);
 
   useEffect(() => {
     abortedRef.current = false;
